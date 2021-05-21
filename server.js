@@ -3,12 +3,41 @@ const app = express()
 
 app.set("view engine", "ejs")
 
-app.get("/", function(req, res){
-    res.render("index")
+app.get("/", function (req, res) {
+    const items = [{
+        title: "D",
+        message: "esenvolver aplicações/serviços de forma facil"
+    },
+
+    {
+        title: "E",
+        message: "JS usa JavaScript para renderizar HTML"
+    },
+    {
+        title: "M",
+        message: "uito fácil de usar",
+    },
+    {
+        title: "A",
+        message: "prendendo mais e mais",
+    },
+    {
+        title: "I",
+        message: "nstalei EJS",
+    },
+    {
+        title: "S",
+        message: "intaxe simples",
+    },
+    ]
+    
+    res.render("pages/index", {
+        qualitys: items,
+    })
 })
 
-app.get("/sobre", function(req, res){
-    res.render("about") 
+app.get("/sobre", function (req, res) {
+    res.render("pages/about")
 })
 
 app.listen(8080)
